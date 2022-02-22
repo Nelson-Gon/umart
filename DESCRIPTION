@@ -1,9 +1,8 @@
 Package: umart
 Title: umart generates umap art 
 Version: 0.1.0.9000
-Authors@R: 
-    person("Nelson", "Gonzabato", 
-    "gonzabato@hotmail.com", role = c("aut", "cre")))
+Authors@R: person(given="Nelson", family="Gonzabato", 
+             email = "gonzabato@hotmail.com", role = c("aut", "cre"))
 Description: Using UMAP embeddings, "umart" provides an easy to use framework 
              for users to generate beautiful generative art. 
 License: LICENSE
@@ -11,5 +10,7 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 Imports: 
-    ggplot2 (>= 3.3.5),
+    rlang (>= 0.4.12),
     uwot (>= 0.1.11)
+Depends: 
+    ggplot2 (>= 3.3.5)

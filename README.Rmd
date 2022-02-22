@@ -48,4 +48,19 @@ umap_df <- run_umap(df[, -3],neighbors = 20, seed = 520)
 generate_umart(umap_df, group_col = df$group)
 ```
 
+# Many neighbors 
+
+```{r}
+r_x <- generate_data(mean = 0.5, sd = 5)
+r_y <- generate_data(mean = 0.6, sd = 50)
+df <- data.frame(x = sin(r_x), y=r_y, group = rep(paste0("grp_", 1:5), 10))
+neighbors <- 2:20
+umaps <- lapply(neighbors, function(x) run_umap(df[, -3],neighbors = x,
+                                                seed = 520))
+umap_df <- do.call(rbind, umaps)
+umap_df$neighbors <- neighbors 
+groups <- rep(paste0("grp_", 1:5), 190)
+generate_umart(umap_df, group_col = groups) +
+  facet_wrap(~neighbors)
+```
 

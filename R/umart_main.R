@@ -26,7 +26,8 @@ if(type == "norm"){
 #' Run a UMAP
 #'
 #' @param seed Seed for reproducibility
-#' @param neighbors Number of neighbors to use
+#' @param neighbors Number of neighbors to use. Can be a single number or a
+#' numeric vector.
 #' @param df A data.frame/matrix with all numeric values
 #' @param ... Other arguments to "umap::uwot".
 #' @return A UMAP object
@@ -42,9 +43,14 @@ if(type == "norm"){
 #' }
 run_umap <- function(df=NULL, neighbors = NULL, seed = 520, ...){
   set.seed(seed)
-  u_map <- uwot::umap(df, n_neighbors = neighbors, ...)
-  u_map_df <- data.frame(x= u_map[,1], y= u_map[,2])
-  u_map_df
+  umaps <- lapply(neighbors, function(x){
+    u_map <- uwot::umap(df, n_neighbors = x, ...)
+    umap_df <- data.frame(x= u_map[,1], y= u_map[,2])
+    umap_df$neighbors <- x
+    umap_df
+  })
+  do.call(rbind, umaps)
+
 }
 
 #' Generate umart
@@ -68,6 +74,7 @@ generate_umart <- function(umap_df, opacity = 0.25, group_col = NULL){
     geom_area(alpha = opacity) +
     coord_polar() +
     scale_fill_brewer(type = "div", palette = "Spectral") +
+    facet_wrap(~neighbors) +
     theme_minimal() +
     theme(axis.title = element_blank(),
           axis.text = element_blank(),

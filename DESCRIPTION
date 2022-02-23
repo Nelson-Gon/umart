@@ -1,6 +1,6 @@
 Package: umart
 Title: umart generates umap art 
-Version: 0.1.0.9000
+Version: 0.1.1.9000
 Authors@R: person(given="Nelson", family="Gonzabato", 
              email = "gonzabato@hotmail.com", role = c("aut", "cre"))
 Description: Using UMAP embeddings, "umart" provides an easy to use framework 

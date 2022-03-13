@@ -9,7 +9,8 @@ run_umap(df = NULL, neighbors = NULL, seed = 520, ...)
 \arguments{
 \item{df}{A data.frame/matrix with all numeric values}
 
-\item{neighbors}{Number of neighbors to use}
+\item{neighbors}{Number of neighbors to use. Can be a single number or a
+numeric vector.}
 
 \item{seed}{Seed for reproducibility}
 

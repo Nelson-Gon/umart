@@ -55,7 +55,8 @@ umap_df <- run_umap(df[, -3],neighbors = 20, seed = 520)
 # Generate umart
 
 ``` r
-generate_umart(umap_df, group_col = df$group)
+generate_umart(umap_df, group_col = df$group,
+               bg_color = "#f2f5f3", use_geom = "geom_area")
 ```
 
 ![](README_files/figure-gfm/generate_art-1.png)<!-- -->
@@ -63,10 +64,12 @@ generate_umart(umap_df, group_col = df$group)
 # Many neighbors
 
 ``` r
-umaps <- run_umap(df[, -3],neighbors = 2:7, seed = 233520)
+umaps <- run_umap(df[, -3],neighbors = 2:7, seed = 2022)
 groups <- rep(paste0("g_", 1:5), 60)
 
-generate_umart(umaps, group_col = groups, opacity = 0.12) 
+generate_umart(umaps, group_col = groups, opacity = 0.6,
+               bg_color = "#e6c5d3", use_geom = "geom_path"
+               ) 
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->

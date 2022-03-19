@@ -80,7 +80,7 @@ run_umap <- function(df=NULL, neighbors = NULL, seed = 520, ...){
 #' @importFrom rlang .data
 generate_umart <- function(umap_df, opacity = 0.25, group_col = NULL,
                            use_palette = "Spectral",
-                           bg_color = "#b31c12",
+                           bg_color = "#f2f5f3",
                            use_geom = "geom_path"
                            ){
   ggplot(umap_df,aes(.data[["x"]], .data[["y"]], fill=group_col,

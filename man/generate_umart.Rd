@@ -4,7 +4,14 @@
 \alias{generate_umart}
 \title{Generate umart}
 \usage{
-generate_umart(umap_df, opacity = 0.25, group_col = NULL)
+generate_umart(
+  umap_df,
+  opacity = 0.25,
+  group_col = NULL,
+  use_palette = "Spectral",
+  bg_color = "#b31c12",
+  use_geom = "geom_path"
+)
 }
 \arguments{
 \item{umap_df}{An object from run_umap}
@@ -12,6 +19,12 @@ generate_umart(umap_df, opacity = 0.25, group_col = NULL)
 \item{opacity}{controls background opacity}
 
 \item{group_col}{Column to use to color UMAP result}
+
+\item{use_palette}{Specifies a palette to use for the coloring}
+
+\item{bg_color}{Specifies plot background color}
+
+\item{use_geom}{Species the kind of geom to use. Defaults to geom_path}
 }
 \value{
 UMAP art (umart)

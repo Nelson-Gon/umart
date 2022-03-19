@@ -65,6 +65,7 @@ run_umap <- function(df=NULL, neighbors = NULL, seed = 520, ...){
 #' @param bg_color Specifies plot background color
 #' @param use_geom Species the kind of geom to use. Defaults to geom_path
 #' @importFrom methods getFunction
+#' @importFrom stats rpois runif
 #' @return UMAP art (umart)
 #' @export
 #' @examples

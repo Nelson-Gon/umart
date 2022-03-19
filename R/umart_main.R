@@ -64,6 +64,7 @@ run_umap <- function(df=NULL, neighbors = NULL, seed = 520, ...){
 #' @param use_palette Specifies a palette to use for the coloring
 #' @param bg_color Specifies plot background color
 #' @param use_geom Species the kind of geom to use. Defaults to geom_path
+#' @param ... Other arguments to `aes` for the specific `geom`.
 #' @importFrom methods getFunction
 #' @importFrom stats rpois runif
 #' @return UMAP art (umart)
@@ -81,11 +82,12 @@ run_umap <- function(df=NULL, neighbors = NULL, seed = 520, ...){
 generate_umart <- function(umap_df, opacity = 0.25, group_col = NULL,
                            use_palette = "Spectral",
                            bg_color = "#f2f5f3",
-                           use_geom = "geom_path"
+                           use_geom = "geom_path",
+                           ...
                            ){
   ggplot(umap_df,aes(.data[["x"]], .data[["y"]], fill=group_col,
                      col = group_col))+
-    getFunction(use_geom)(alpha=opacity) +
+    getFunction(use_geom)(alpha=opacity,...) +
     coord_polar() +
     scale_fill_brewer(type = "div", palette = use_palette) +
     theme_minimal() +

@@ -41,22 +41,23 @@ library(umart)
 # Data Generation
 
 ``` r
-r_x <- generate_data(mean = 233, sd = 0.0233)
-r_y <- generate_data(mean = 520, sd = 0.0520)
+r_x <- generate_data(mean = 20.5, sd = 0.2)
+r_y <- generate_data(mean = 10.5, sd = 0.1)
 df <- data.frame(x = r_x, y=r_y, group = rep(paste0("grp_", 1:5), 10))
 ```
 
 # Run UMAP
 
 ``` r
-umap_df <- run_umap(df[, -3],neighbors = 20, seed = 520)
+umap_df <- run_umap(df[, -3],neighbors = 5,  seed = 520)
 ```
 
 # Generate umart
 
 ``` r
 generate_umart(umap_df, group_col = df$group,
-               bg_color = "#f2f5f3", use_geom = "geom_area")
+               bg_color = "#f2f5f3", use_geom = "geom_segment",
+               xend = 0.5, yend = 12)
 ```
 
 ![](README_files/figure-gfm/generate_art-1.png)<!-- -->
@@ -64,11 +65,12 @@ generate_umart(umap_df, group_col = df$group,
 # Many neighbors
 
 ``` r
-umaps <- run_umap(df[, -3],neighbors = 2:7, seed = 2022)
-groups <- rep(paste0("g_", 1:5), 60)
+umaps <- run_umap(df[, -3],neighbors = 2:5, seed = 20)
+groups <- rep(paste0("g_", 1:5), 40)
 
-generate_umart(umaps, group_col = groups, opacity = 0.6,
-               bg_color = "#e6c5d3", use_geom = "geom_path"
+generate_umart(umaps, group_col = groups, opacity = 0.15,
+               bg_color = "#f6feff", use_geom = "geom_col",
+               use_palette = "Blues"
                ) 
 ```
 

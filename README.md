@@ -13,8 +13,6 @@ coverage](https://codecov.io/gh/Nelson-Gon/umart/branch/main/graph/badge.svg)](h
 Status](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/)
 [![lifecycle](https://img.shields.io/badge/lifecycle-maturing-blue.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![license](https://img.shields.io/badge/license-GPL--3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
-[![Downloads](https://cranlogs.r-pkg.org/badges/umart)](https://cran.r-project.org/package=umart)
-[![TotalDownloads](https://cranlogs.r-pkg.org/badges/grand-total/umart?color=green)](https://cran.r-project.org/package=umart)
 [![GitHub last
 commit](https://img.shields.io/github/last-commit/Nelson-Gon/umart.svg)](https://github.com/Nelson-Gon/umart/commits/main)
 [![GitHub
